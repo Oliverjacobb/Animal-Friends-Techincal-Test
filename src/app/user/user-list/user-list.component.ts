@@ -3,7 +3,7 @@ import { UserApiService } from '../../services/user-api.service';
 import { User, UserResult } from '../../models/user';
 import { UserSearchComponent } from '../user-search/user-search.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
@@ -18,17 +18,20 @@ export class UserListComponent implements OnInit {
   public users = signal<User[]>([]);
   public loadingUsers = signal<boolean>(true);
   public page: number = 1;
+  public hidePagination = signal<boolean>(false);
 
   ngOnInit(): void {
     this.retrieveUsers(1);
   }
 
-  public selectUser(user: User): void {
+  public onSelectUser(user: User): void {
     this.users.set(this.users().filter(u => u.login.uuid === user.login.uuid));
+    this.hidePagination.set(true);
   }
 
   public onReset(): void {
     this.users.set(this.allUsers);
+    this.hidePagination.set(false);
   }
 
   public onPageChange(page: number): void {

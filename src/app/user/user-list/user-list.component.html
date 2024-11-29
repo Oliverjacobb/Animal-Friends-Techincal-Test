@@ -8,7 +8,7 @@
 
         @else {
             <div class="userSearchContainer">
-                <app-user-search [searchableUsers]="users()" (userSelected)="selectUser($event)"  (resetClicked)="onReset()"></app-user-search>
+                <app-user-search [searchableUsers]="users()" (userSelected)="onSelectUser($event)"  (resetClicked)="onReset()"></app-user-search>
             </div>
             <div class="container mt-4">
                 <div class="table-responsive">
@@ -47,9 +47,11 @@
                         </tbody>
                     </table>
                 </div>
-                <div class="paginationContainer">
-                    <ngb-pagination [collectionSize]="70" [(page)]="page" (pageChange)="onPageChange($event)" aria-label="Navigate through users" />
-                </div>
+                @if(!hidePagination()) {
+                    <div class="paginationContainer">
+                        <ngb-pagination [collectionSize]="100" [(page)]="page" (pageChange)="onPageChange($event)" aria-label="Navigate through users" />
+                    </div>
+                }
             </div>  
         }
 </div>

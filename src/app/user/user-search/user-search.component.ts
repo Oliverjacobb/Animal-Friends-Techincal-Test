@@ -22,6 +22,7 @@ export class UserSearchComponent implements OnInit, AfterViewInit, OnDestroy {
   @Output() resetClicked = new EventEmitter();
 
   @ViewChild('searchInput') searchInput!: ElementRef<HTMLInputElement>;
+  component: any;
 
   ngOnInit(): void {
     this.SearchBox.valueChanges.pipe(
@@ -42,7 +43,7 @@ export class UserSearchComponent implements OnInit, AfterViewInit, OnDestroy {
     this.destroy$.complete();
   }
 
-  filterUsers(query: string): void {
+  private filterUsers(query: string): void {
     if (query.length < 3) {
       this.filteredUsers.set([]);
       return;
@@ -58,14 +59,14 @@ export class UserSearchComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  selectUser(user: User): void {
+  public selectUser(user: User): void {
     this.userSelected.emit(user);
     this.SearchBox.setValue(`${user.name.first} ${user.name.last}`);
     this.filteredUsers.set([]); 
     this.showResetButton.set(true);
   }
 
-  resetUsers(): void {
+  public resetUsers(): void {
     this.SearchBox.setValue('');
     this.resetClicked.emit();
     this.showResetButton.set(false);
