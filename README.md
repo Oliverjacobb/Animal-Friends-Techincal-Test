@@ -1,27 +1,32 @@
 # UserApp
 
+A simple Angular application that uses the randomuser.me API to retrieve and display a list of users with user details.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.0.
 
-## Development server
+### Running Locally
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Run npm i
+- Run ng serve to start the development server
 
-## Code scaffolding
+### Executing Tests
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Tests are written with the out the box Angular solution of Karma and Jasmine.
 
-## Build
+You can execute them by running 'ng test'.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Design Considerations
 
-## Running unit tests
+In user detail as I couldn't see how with the API we could get a specific user as it's random, I chose just to navigate back to users on refresh. I did consider caching the user in local storage but for the purpose of this small task it seemed like overkill. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+There are some arguments that the user detail route should be a child route of users, however due to the simplicity of this application I chose to just put it on a seperate route.
 
-## Running end-to-end tests
+### If I had more time 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+I would expand testing coverage for the user-detail component and also maybe add tests for the templats. However some argue DOM testing should be handled by e2e testing not unit tests. 
 
-## Further help
+I would implement a custom directive to take the users 'na' and return a flag icon based on that. 
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+I would add an intergration to Google Maps to see where the user is located.
+
+If this was built as an administration portal for admins to review users we could add the ability to update their credentials, contact information and delete the user all together. We could have a seperate component for this using a reactive form.
