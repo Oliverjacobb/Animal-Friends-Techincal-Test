@@ -5,10 +5,16 @@ export interface UserResult {
 
 export interface User {
     name: UserName;
+    gender: string;
     picture: UserPicture;
     login: UserLogin;
     email: string;
     location: UserLocation;
+    dob: UserDOB;
+    nat: string;
+    registered: UserRegistration;
+    phone: string;
+    cell: string;
 }
 
 interface UserName {
@@ -25,6 +31,7 @@ interface UserPicture {
 
 interface UserLogin {
     uuid: string;
+    username: string;
 }
 
 interface UserLocation {
@@ -50,4 +57,14 @@ interface Coordinates {
 interface Timezone {
     offset: string;
     description: string;
+}
+
+interface UserDOB {
+    date: string;
+    age: number;
+}
+
+interface UserRegistration {
+    date: string;
+    age: number;
 }

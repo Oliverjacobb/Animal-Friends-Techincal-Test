@@ -2,13 +2,13 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { UserApiService } from '../../services/user-api.service';
 import { User, UserResult } from '../../models/user';
 import { UserSearchComponent } from '../user-search/user-search.component';
-import { RouterModule } from '@angular/router';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [UserSearchComponent, RouterModule, NgbPaginationModule],
+  imports: [UserSearchComponent, RouterLink, NgbPaginationModule],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss'
 })

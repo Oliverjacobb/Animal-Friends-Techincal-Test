@@ -38,7 +38,7 @@
                                         {{ user.location.city }}, {{ user.location.country }}
                                     </td>
                                     <td>
-                                        <a [routerLink]="['/userDetail', user.login.uuid]" class="btn viewDetailsButton" [attr.aria-label]="'View user details for ' + user.name.first">
+                                        <a [routerLink]="['/user', user.login.uuid]" class="btn viewDetailsButton" [attr.aria-label]="'View user details for ' + user.name.first">
                                             View Details
                                         </a>
                                     </td>

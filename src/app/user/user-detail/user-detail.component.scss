@@ -1,0 +1,61 @@
+@import '../../../variables.scss';
+@import '../../../buttons.scss';
+
+.user-detail-card {
+  border-radius: 16px; 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 100%;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  padding: 10px 20px;
+  @include button-styles($bg-color: $primary-color);
+  margin-bottom: 15px;
+
+  i {
+    font-size: 20px;
+  }
+}
+
+.gender-badge {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: $primary-color;
+  color: white;
+  margin-right: 1em
+}
+
+.nationality-badge {
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: $primary-border-color;
+  color: white;
+}
+
+.img-fluid.rounded-circle {
+  max-width: 200px;
+  height: auto;
+}
+
+.container {
+  padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .user-detail-card {
+    max-width: 100%;
+  }
+
+  .img-fluid.rounded-circle {
+    max-width: 150px;
+  }
+}
