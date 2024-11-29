@@ -1,0 +1,55 @@
+<div>
+        @if (loadingUsers()) {
+            <div class="loadingContainer">
+                <div class="spinner-grow" role="status"></div>
+                <p>Loading Users...</p>
+            </div>
+        } 
+
+        @else {
+            <div class="userSearchContainer">
+                <app-user-search [searchableUsers]="users()" (userSelected)="selectUser($event)"  (resetClicked)="onReset()"></app-user-search>
+            </div>
+            <div class="container mt-4">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Photo</th>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @for (user of users(); track user.login.uuid) {
+                                <tr>
+                                    <th scope="row">{{ $index + 1 }}</th>
+                                    <td>
+                                        <img src="{{ user.picture.thumbnail }}" alt="User photo" class="rounded-circle" width="50" height="50">
+                                    </td>
+                                    <td>{{ user.name.title }} {{ user.name.first }} {{ user.name.last }}</td>
+                                    <td>
+                                        <a href="mailto:{{ user.email }}" [attr.aria-label]="'Email ' + user.name.first">{{ user.email }}</a>
+                                    </td>
+                                    <td>
+                                        {{ user.location.city }}, {{ user.location.country }}
+                                    </td>
+                                    <td>
+                                        <a [routerLink]="['/userDetail', user.login.uuid]" class="btn viewDetailsButton" [attr.aria-label]="'View user details for ' + user.name.first">
+                                            View Details
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                <div class="paginationContainer">
+                    <ngb-pagination [collectionSize]="70" [(page)]="page" (pageChange)="onPageChange($event)" aria-label="Navigate through users" />
+                </div>
+            </div>  
+        }
+</div>

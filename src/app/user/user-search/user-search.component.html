@@ -1,0 +1,18 @@
+<div class="input-group mb-3">
+    <input #searchInput type="text" [formControl]="SearchBox" class="form-control" placeholder="Search by the users name" aria-label="earch by the users name">
+    @if (filteredUsers().length > 0) {
+        <div class="dropdown-menu show">
+            @for(user of filteredUsers(); track user.login.uuid) {
+                <button class="dropdown-item" type="button" (click)="selectUser(user)" [attr.aria-label]="'Select user ' + user.name.first + ' ' + user.name.last">
+                    {{ user.name.first }} {{ user.name.last }} | {{ user.location.country }}
+                </button>
+            }
+        </div>
+    }
+</div>
+
+@if (showResetButton()) {
+    <div class="resetButtonContainer">
+        <button class="btn btn-secondary mt-2" (click)="resetUsers()" aria-label="Reset filter and display all users">Display all users</button>
+    </div>
+}

@@ -1,0 +1,27 @@
+
+@mixin button-styles($bg-color: $primary-color, $text-color: #fff) {
+    background-color: $bg-color;
+    color: $text-color;
+    border: 1px solid $primary-border-color;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        @include button-hover;
+    }
+
+    &:focus {
+        @include button-focus;
+    }
+}
+
+@mixin button-hover {
+    background-color: $primary-hover-color;
+    color: #fff; 
+    border-color: $primary-border-color;
+}
+
+@mixin button-focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba($primary-color, 0.5);
+}

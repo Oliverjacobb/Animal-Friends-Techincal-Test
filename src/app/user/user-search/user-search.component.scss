@@ -1,0 +1,35 @@
+@import '../../../variables.scss';
+@import '../../../buttons.scss';
+
+.input-group {
+    width: 30em;
+
+    .form-control:focus {
+        border-color: $primary-color;
+        box-shadow: 0 0 0 .25rem $primary-color;
+    }
+    
+    .dropdown-menu{
+        margin-top: 2.5em;
+        width: 30em;
+    }
+}
+
+.resetButtonContainer {
+    display: flex;
+    justify-content: center;
+
+    button {
+        @include button-styles();
+    }
+}
+
+@media (max-width: 768px) {
+    .input-group {
+        width: 20em;
+
+        .dropdown-menu{
+            width: 20em;
+        }
+    }
+}

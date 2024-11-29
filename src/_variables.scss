@@ -1,0 +1,4 @@
+$primary-color: #e60073;
+$primary-hover-color: darken($primary-color, 10%);
+$primary-focus-color: lighten($primary-color, 20%); 
+$primary-border-color: adjust-hue($primary-color, 10deg); 

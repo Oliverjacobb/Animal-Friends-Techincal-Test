@@ -1,0 +1,140 @@
+@import '../../../variables.scss';
+@import '../../../buttons.scss';
+
+.loadingContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2em;
+
+    .spinner-grow {
+        background-color: $primary-color;
+    }
+}
+
+.userSearchContainer {
+    margin-top: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.viewDetailsButton {
+    @include button-styles();
+}
+
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+}
+
+:host ::ng-deep .pagination {
+    .page-item.active .page-link {
+      background-color: $primary-color; 
+      border-color: $primary-color;
+      color: #fff; 
+    }
+  
+    .page-link {
+      color: $primary-color;
+      &:hover {
+        @include button-hover;
+      }
+  
+      &:focus {
+        @include button-focus;
+      }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+      padding: 0 1em; /* Add padding on sides for mobile */
+    }
+  
+    .loadingContainer {
+      margin-top: 0;
+      height: 100vh; /* Full viewport height */
+    }
+  
+    .userSearchContainer {
+      margin-top: 1em;
+      padding: 0 1em;
+    }
+  
+    .viewDetailsButton {
+      width: 100%; /* Make the button full width on smaller screens */
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+  
+    .paginationContainer {
+      .page-link {
+        padding: 1rem; /* Make pagination buttons larger */
+        font-size: 1.2rem; /* Increase font size for readability */
+      }
+    }
+  
+    /* Table Layout for Mobile (No Horizontal Scroll) */
+    .table-responsive {
+      overflow: visible; /* Disable horizontal scrolling */
+      margin-top: 1em;
+    }
+  
+    /* Convert table rows to card-like format on mobile */
+    .table {
+      display: block;
+      width: 100%;
+      border-collapse: collapse; /* Remove spacing between rows */
+    }
+  
+    .table thead {
+      display: none; /* Hide table headers */
+    }
+  
+    .table tbody {
+      display: block;
+    }
+  
+    .table tr {
+      display: block;
+      border: 1px solid #ddd;
+      margin-bottom: 1em; /* Add spacing between rows */
+      padding: 1em;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+  
+    .table td {
+      display: flex;
+      flex-direction: column;
+      padding: 0.5em;
+      font-size: 1rem; /* Adjust font size for mobile readability */
+    }
+  
+    .table td:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+  
+    .table img {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.5em;
+      border-radius: 50%;
+    }
+  
+    .table td a {
+      word-wrap: break-word; /* Prevent long email addresses from breaking the layout */
+    }
+  
+    /* Additional padding for cards */
+    .table td {
+      padding: 1em;
+    }
+  
+    .paginationContainer {
+      margin-top: 1.5em;
+      display: flex;
+      justify-content: center;
+    }
+  }
+  
