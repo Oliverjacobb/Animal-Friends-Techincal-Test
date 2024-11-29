@@ -4,6 +4,7 @@ import { User, UserResult } from '../../models/user';
 import { UserSearchComponent } from '../user-search/user-search.component';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { RouterLink } from '@angular/router';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-user-list',
@@ -40,7 +41,14 @@ export class UserListComponent implements OnInit {
   }
 
   private retrieveUsers(page: number): void {
-    this.userApiService.getUsers(10, page).subscribe((userResult: UserResult) => {
+    this.userApiService.getUsers(10, page)
+    .pipe(
+      catchError((error) => {
+        console.error('Error retrieving users:', error);
+        return of({results: []} as UserResult);
+      })
+    )
+    .subscribe((userResult: UserResult) => {
       this.allUsers = userResult.results;
       this.users.set(userResult.results);
       this.loadingUsers.set(false);
