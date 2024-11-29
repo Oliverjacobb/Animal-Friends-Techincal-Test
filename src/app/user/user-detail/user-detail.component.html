@@ -8,7 +8,7 @@
     
                 <div class="col-md-8">
                     <div class="card-body">
-                        <a routerLink="/users" class="btn back-button">
+                        <a routerLink="/users" class="btn back-button" aria-label="Back to Users">
                             <i class="bi bi-arrow-left-circle"></i> Back to Users
                         </a>
     
@@ -20,7 +20,7 @@
                             <span class="badge nationality-badge">{{ user.nat }}</span>
                         </div>
     
-                        <p><strong>Email: </strong> <a href="mailto:{{ user.email }}">{{ user.email }}</a></p>
+                        <p><strong>Email: </strong> <a href="mailto:{{ user.email }}" [attr.aria-label]="'Email ' + user.name.first">{{ user.email }}</a></p>
                         <p><strong>Username:</strong> {{ user.login.username }}</p>
     
                         <p><strong>Location:</strong> {{ user.location.street.number }} {{ user.location.street.name }},

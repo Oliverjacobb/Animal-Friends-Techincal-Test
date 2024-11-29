@@ -26,10 +26,10 @@ export class UserDetailComponent implements OnInit {
         if (user) {
           this.user = user;
         } else {
-          // This is for when you refresh on this rout
-          // I cannot see a way to get the same single user by id from the API
-          // Obviously in real world the API would have a get user by id endpoint or similar
-          // I did think about caching the user initially but for the sake of this task I didn't
+          // This is for when you refresh on this route.
+          // I cannot see a way to get the same single user by id from the API.
+          // Obviously in real world the API would have a get user by id endpoint or similar.
+          // I did think about caching the user initially but for the sake of this task I didn't.
           this.router.navigate(['users']);
         }
       });

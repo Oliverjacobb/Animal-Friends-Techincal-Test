@@ -48,12 +48,12 @@
 
 @media (max-width: 768px) {
     .container {
-      padding: 0 1em; /* Add padding on sides for mobile */
+      padding: 0 1em; 
     }
   
     .loadingContainer {
       margin-top: 0;
-      height: 100vh; /* Full viewport height */
+      height: 100vh; 
     }
   
     .userSearchContainer {
@@ -62,33 +62,31 @@
     }
   
     .viewDetailsButton {
-      width: 100%; /* Make the button full width on smaller screens */
+      width: 100%;
       font-size: 1rem;
       padding: 0.75rem;
     }
   
     .paginationContainer {
       .page-link {
-        padding: 1rem; /* Make pagination buttons larger */
-        font-size: 1.2rem; /* Increase font size for readability */
+        padding: 1rem; 
+        font-size: 1.2rem;
       }
     }
   
-    /* Table Layout for Mobile (No Horizontal Scroll) */
     .table-responsive {
-      overflow: visible; /* Disable horizontal scrolling */
+      overflow: visible; 
       margin-top: 1em;
     }
   
-    /* Convert table rows to card-like format on mobile */
     .table {
       display: block;
       width: 100%;
-      border-collapse: collapse; /* Remove spacing between rows */
+      border-collapse: collapse; 
     }
   
     .table thead {
-      display: none; /* Hide table headers */
+      display: none; 
     }
   
     .table tbody {
@@ -98,7 +96,7 @@
     .table tr {
       display: block;
       border: 1px solid #ddd;
-      margin-bottom: 1em; /* Add spacing between rows */
+      margin-bottom: 1em; 
       padding: 1em;
       border-radius: 5px;
       background-color: #fff;
@@ -108,7 +106,7 @@
       display: flex;
       flex-direction: column;
       padding: 0.5em;
-      font-size: 1rem; /* Adjust font size for mobile readability */
+      font-size: 1rem; 
     }
   
     .table td:not(:last-child) {
@@ -123,10 +121,9 @@
     }
   
     .table td a {
-      word-wrap: break-word; /* Prevent long email addresses from breaking the layout */
+      word-wrap: break-word; 
     }
   
-    /* Additional padding for cards */
     .table td {
       padding: 1em;
     }
